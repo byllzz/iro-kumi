@@ -1,19 +1,19 @@
-<a href="https://wadaindex.vercel.app" target="_blank">WadaIndex — A Digital Dictionary of Color Combinations</a>
+# <a href="https://wadaindex.vercel.app" target="_blank">WadaIndex — A Digital Dictionary of Color Combinations</a> 
 WadaIndex is a high-fidelity digital archive of Wada Sanzō’s seminal 6-volume color study from the 1930s. Explore a curated collection of 162 traditional Japanese pigments, discover historical multi-color harmonies (Plates), and experience the intersection of early 20th-century color theory and modern web design.
 
 Built for archival precision, monumental typography, and minimalist immersion — bringing a masterpiece of color history to the browser.
 
 <p align="left">
 <a href="https://www.google.com/search?q=./LICENSE">
-<img src="https://img.shields.io/badge/License-MIT-000000.svg?style=flat" />
+<img src="https://img.shields.io/badge/License-MIT-9B72FF.svg?style=flat" />
 </a>
-<img src="https://img.shields.io/badge/Repository%20Status-Maintained-000000.svg?style=flat" />
-<img src="https://img.shields.io/badge/Website%20Status-Online-000000.svg?style=flat" />
+<img src="https://img.shields.io/badge/Repository%20Status-Maintained-9B72FF.svg?style=flat" />
+<img src="https://img.shields.io/badge/Website%20Status-Online-9B72FF.svg?style=flat" />
 <a href="https://github.com/byllzz">
-<img src="https://img.shields.io/badge/Author-Bilal%20Malik-000000.svg?style=flat" />
+<img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" />
 </a>
 <a href="https://github.com/byllzz/wada-index/releases">
-<img src="https://img.shields.io/badge/Latest%20Release-Mar%202026-000000.svg" />
+<img src="https://img.shields.io/badge/Latest%20Release-Mar%202026-9B72FF.svg?style=flat" />
 </a>
 </p>
 <br />
@@ -21,11 +21,12 @@ Built for archival precision, monumental typography, and minimalist immersion �
 
 [![Visit WadaIndex](https://img.shields.io/badge/View-WadaIndex-9B72FF?style=flat)](https://wadaindex.vercel.app)
 
-<img width="100%" alt="WadaIndex Preview" src="./assets/preview.png" />
+<img width="100%" alt="WadaIndex Preview" src="/public/preview.png" />
 
 ⭐ Star the repo if you appreciate the aesthetic — it really helps!
 
-✨ Features
+## ✨ Features
+
 <p align="left">
 ✔️ 162 Individual Pigments (Traditional Japanese palette) <br>
 ✔️ Historical Color Plates (2, 3, and 4-color harmonies)<br>
@@ -36,7 +37,6 @@ Built for archival precision, monumental typography, and minimalist immersion �
 ✔️ Mix-Blend-Mode UI (Context-aware text readability)<br>
 ✔️ Proportional Weight Bars (Visualizing color harmony balance)<br>
 ✔️ Custom "Ghost" Scrollbar (Minimalist UX design)<br>
-✔️ Animated View Toggling (Smooth transitions between modes)<br>
 ✔️ Responsive Grid Layout (Optimized for all screen sizes)<br>
 ✔️ Fully Client-Side (Fast, snappy navigation via React Router)<br>
 ✔️ Dark Mode Optimized (Japandi-inspired aesthetic)<br>
@@ -45,11 +45,29 @@ Built for archival precision, monumental typography, and minimalist immersion �
 
 ## How It Works
 
-1. Archival Logic: Uses a structured JSON database mapping **Wada Sanzō's** original 1930s indexes. <br>
-2. Dynamic Theming: Utilizes React state and inline styles to render monumental color backgrounds dynamically (bypassing Tailwind's JIT limitations for variables).<br>
-3. Harmony Engine: Analyzes color plates to display proportional weight distribution as intended in the original print.<br>
-4. Visual Contrast: Employs CSS mix-blend-difference to ensure navigation remains visible across any pigment intensity.<br>
-5. Typography-First: Leverages CSS clamp and serif italics to mimic the feel of a premium physical art book.<br>
+## Technical Architecture
+
+1. **Archival Logic: Historical Database**
+    - **Dataset**: Utilizes a structured JSON database mapping **Wada Sanzō’s** original 1930s color indexes.
+    - **Authenticity**: Preserves the exact hex values and nomenclature from the "Dictionary of Color Combinations."
+
+2. **Dynamic Theming: Reactive UI**
+    - **Engine**: Employs **React state** and inline styles to render monumental color backgrounds.
+    - **Efficiency**: Bypasses **Tailwind’s JIT** limitations by injecting variables directly into the DOM for real-time transitions.
+
+3. **Harmony Engine: Proportional Analysis**
+    - **Logic**: Analyzes color plates to display the precise **weight distribution** intended in the original print.
+    - **Visuals**: Balances primary, secondary, and accent pigments based on historical color theory.
+
+4. **Visual Contrast: Legibility Layer**
+    - **Mechanism**: Leverages `CSS mix-blend-difference` to maintain navigation visibility.
+    - **Outcome**: UI elements remain legible across any **pigment intensity** or brightness level automatically.
+
+5. **Typography-First: Editorial Aesthetic**
+    - **Styling**: Uses **CSS clamp** and serif italics to mimic the tactile feel of a premium physical art book.
+    - **Responsiveness**: Ensures a fluid, high-end editorial layout across all viewport sizes.
+
+---
 
 
 ## Installation & Setup
