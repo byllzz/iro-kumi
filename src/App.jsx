@@ -4,6 +4,7 @@ import About from './pages/About';
 import License from './pages/License';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import ColorDetails from './pages/ColorDetails';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Faqs from './components/layout/Faqs';
 
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/faqs" element={<Faqs />}></Route>
           <Route path="/license" element={<License />}></Route>
+          <Route path="/ColorDetails" element={<ColorDetails />}></Route>
         </Routes>
         <Footer />
       </div>

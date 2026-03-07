@@ -1,9 +1,7 @@
-import React from 'react';
+export default function Hero({ platesLenght, singleColorsLength }) {
 
-export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-24 overflow-hidden">
-
       {/*large outlined background  */}
       <div className="absolute top-10 left-0 w-full select-none pointer-events-none z-0">
         <h1
@@ -46,16 +44,19 @@ export default function Hero() {
           </h1>
 
           <p className="font-fair text-xl md:text-3xl max-w-2xl text-zinc-500 leading-relaxed italic">
-            A timeless reference for visual harmony, modern aesthetics,
-            and the sophisticated art of dressing well.
+            A timeless reference for visual harmony, modern aesthetics, and the sophisticated art of
+            dressing well.
           </p>
         </div>
 
         {/* statistics grid */}
         <div className="flex flex-row items-center gap-16 mt-20 ml-8 md:ml-12">
           <div className="group cursor-default">
-            <h2 className="text-5xl md:text-7xl font-fair text-white transition-transform duration-500 group-hover:-translate-y-2" id="totalColors">
-              161
+            <h2
+              className="text-5xl md:text-7xl font-fair text-white transition-transform duration-500 group-hover:-translate-y-2"
+              id="totalColors"
+            >
+             {singleColorsLength}
             </h2>
             <div className="flex items-center gap-3 mt-2">
               <div className="w-8 h-[1px] bg-[#b91c1c]"></div>
@@ -67,7 +68,7 @@ export default function Hero() {
 
           <div className="group cursor-default">
             <h2 className="text-5xl md:text-7xl font-fair text-white transition-transform duration-500 group-hover:-translate-y-2">
-              348
+              {platesLenght}
             </h2>
             <div className="flex items-center gap-3 mt-2">
               <div className="w-8 h-[1px] bg-zinc-800"></div>
@@ -80,9 +81,9 @@ export default function Hero() {
 
         {/* japanese title */}
         <div className="mt-24 ml-8 md:ml-12 opacity-20">
-            <p className="font-fair text-sm tracking-[1em] uppercase text-zinc-500">
-              Wada Sanzō — Haishoku Sōkan
-            </p>
+          <p className="font-fair text-sm tracking-[1em] uppercase text-zinc-500">
+            Wada Sanzō — Haishoku Sōkan
+          </p>
         </div>
       </div>
 

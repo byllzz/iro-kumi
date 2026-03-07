@@ -1,0 +1,163 @@
+{
+  "colors" : [
+  {
+    "id": "c1",
+    "name": "Sumi-iro",
+    "kanji": "墨色",
+    "hex": "#1C1C1C",
+    "description": "The deep, matte black of traditional calligraphy ink.",
+    "category": "Neutral"
+  },
+  {
+    "id": "c2",
+    "name": "Shinshu",
+    "kanji": "真朱",
+    "hex": "#B91C1C",
+    "description": "A traditional cinnabar red used in temple gates and lacquerware.",
+    "category": "Red"
+  },
+  {
+    "id": "c3",
+    "name": "Ruri-kon",
+    "kanji": "瑠璃紺",
+    "hex": "#1B263B",
+    "description": "A deep lapis lazuli navy, synonymous with evening elegance.",
+    "category": "Blue"
+  },
+  {
+    "id": "c4",
+    "name": "Kogane",
+    "kanji": "黄金",
+    "hex": "#D4AF37",
+    "description": "The muted, sophisticated gold leaf found in Showa-era screens.",
+    "category": "Yellow"
+  },
+  {
+    "id": "c5",
+    "name": "Uguisu",
+    "kanji": "鶯色",
+    "hex": "#928C3E",
+    "description": "The brownish-green color of the Japanese bush warbler.",
+    "category": "Green"
+  },
+  {
+    "id": "c6",
+    "name": "Sakura-iro",
+    "kanji": "桜色",
+    "hex": "#FADADD",
+    "description": "The fleeting, pale pink of a cherry blossom petal.",
+    "category": "Pink"
+  },
+  {
+    "id": "c7",
+    "name": "Asagi",
+    "kanji": "浅葱",
+    "hex": "#00A3AF",
+    "description": "A pale blue-green traditionally used in textile dyeing.",
+    "category": "Blue"
+  },
+  {
+    "id": "c8",
+    "name": "Kuri-iro",
+    "kanji": "栗色",
+    "hex": "#762F07",
+    "description": "A warm, earthy chestnut brown.",
+    "category": "Brown"
+  },
+  {
+    "id": "c9",
+    "name": "Go-fuku",
+    "kanji": "胡粉",
+    "hex": "#FFFFF0",
+    "description": "A white pigment made from pulverized sea shells.",
+    "category": "White"
+  },
+  {
+    "id": "c10",
+    "name": "Botan",
+    "kanji": "牡丹色",
+    "hex": "#E75480",
+    "description": "A vibrant, saturated pink inspired by the peony flower.",
+    "category": "Pink"
+  },
+  {
+    "id": "c11",
+    "name": "Aitake",
+    "kanji": "藍竹",
+    "hex": "#4A5D23",
+    "description": "The dark, shadowed green of an old bamboo grove.",
+    "category": "Green"
+  },
+  {
+    "id": "c12",
+    "name": "Ouni",
+    "kanji": "黄丹",
+    "hex": "#EE7948",
+    "description": "A bright orange traditionally reserved for the Crown Prince's robes.",
+    "category": "Orange"
+  },
+  {
+    "id": "c13",
+    "name": "Fuji-iro",
+    "kanji": "藤色",
+    "hex": "#BB99FF",
+    "description": "A light, ethereal purple based on wisteria flowers.",
+    "category": "Purple"
+  },
+  {
+    "id": "c14",
+    "name": "Sora-iro",
+    "kanji": "空色",
+    "hex": "#87CEEB",
+    "description": "The clear, bright blue of a summer afternoon sky.",
+    "category": "Blue"
+  },
+  {
+    "id": "c15",
+    "name": "Kuwacha",
+    "kanji": "桑茶",
+    "hex": "#957B51",
+    "description": "A yellow-brown 'mulberry tea' color popular in the Edo-Showa eras.",
+    "category": "Brown"
+  },
+  {
+    "id": "c16",
+    "name": "Nadeshiko",
+    "kanji": "撫子",
+    "hex": "#EE95B3",
+    "description": "A soft pink named after the fringed pink carnation.",
+    "category": "Pink"
+  },
+  {
+    "id": "c17",
+    "name": "Mizu-iro",
+    "kanji": "水色",
+    "hex": "#BCE2E8",
+    "description": "A very pale blue, representing the color of clear water.",
+    "category": "Blue"
+  },
+  {
+    "id": "c18",
+    "name": "Enji",
+    "kanji": "臙脂",
+    "hex": "#9D2933",
+    "description": "A deep, dark red similar to cochineal or maroon.",
+    "category": "Red"
+  },
+  {
+    "id": "c19",
+    "name": "Koke-iro",
+    "kanji": "苔色",
+    "hex": "#69821B",
+    "description": "The rich, velvety green of ancient temple moss.",
+    "category": "Green"
+  },
+  {
+    "id": "c20",
+    "name": "Shironeri",
+    "kanji": "白練",
+    "hex": "#FCFAF2",
+    "description": "The creamy white of polished, glossed silk.",
+    "category": "White"
+  }
+]}
