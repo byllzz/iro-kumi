@@ -59,6 +59,7 @@ Built for archival precision, monumental typography, and minimalist immersion â€
 * **Context-Aware UI**: Uses `mix-blend-mode` to ensure navigation is visible against any pigment intensity.
 * **Responsive Grid**: A fluid, editorial layout optimized for mobile and desktop viewing.
 
+---
 
 ## How It Works
 
