@@ -12,7 +12,7 @@ Built for archival precision, monumental typography, and minimalist immersion â€
 <a href="https://github.com/byllzz">
 <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" />
 </a>
-<a href="https://github.com/byllzz/wada-index/releases">
+<a href="https://github.com/byllzz/wadaindex/releases">
 <img src="https://img.shields.io/badge/Latest%20Release-Mar%202026-9B72FF.svg?style=flat" />
 </a>
 </p>
@@ -96,8 +96,8 @@ Node.js (v18+)
 Clone the Repository
 Bash
 
-git clone https://github.com/byllzz/wada-index.git
-cd wada-index
+git clone https://github.com/byllzz/wadaindex.git
+cd wadaindex
 Setup
 Bash
 
