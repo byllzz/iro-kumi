@@ -19,7 +19,7 @@ export default function Navbar() {
             to="/"
             className="font-fair text-xl tracking-tighter text-white hover:text-zinc-400 transition-colors"
           >
-            Wada<span className="text-zinc-600 italic">Index</span>
+            Iro<span className="text-zinc-600 italic">Kumi</span>
           </NavLink>
         </div>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
           <div className="hidden md:block h-4 w-[1px] bg-zinc-800 ml-4"></div>
 
           <a
-            href="https://github.com/byllzz/wada-index"
+            href="https://github.com/byllzz/iro-kumi"
             target="_blank"
             className="hidden md:block font-mono text-[10px] tracking-widest text-zinc-600 hover:text-white transition-colors"
           >

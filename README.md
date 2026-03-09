@@ -1,5 +1,5 @@
-# <a href="https://wadaindex.vercel.app" target="_blank">WadaIndex — A Digital Dictionary of Color Combinations</a>
-WadaIndex is a high-fidelity digital archive of Wada Sanzō’s seminal 6-volume color study from the 1930s. Explore a curated collection of 162 traditional Japanese pigments, discover historical multi-color harmonies (Plates), and experience the intersection of early 20th-century color theory and modern web design.
+# <a href="https://wadaindex.vercel.app" target="_blank">Iro-Kumi - A Digital Dictionary of Color Combinations</a>
+Iro-Kumi is a high-fidelity digital archive of Wada Sanzō’s seminal 6-volume color study from the 1930s. Explore a curated collection of 162 traditional Japanese pigments, discover historical multi-color harmonies (Plates), and experience the intersection of early 20th-century color theory and modern web design.
 
 Built for archival precision, monumental typography, and minimalist immersion — bringing a masterpiece of color history to the browser.
 
@@ -12,16 +12,16 @@ Built for archival precision, monumental typography, and minimalist immersion �
 <a href="https://github.com/byllzz">
 <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF.svg?style=flat" />
 </a>
-<a href="https://github.com/byllzz/wadaindex/releases">
-<img src="https://img.shields.io/badge/Latest%20Release-Mar%202026-9B72FF.svg?style=flat" />
+<a href="https://github.com/byllzz/iro-kumi/releases">
+<img src="https://img.shields.io/badge/Latest%20Release-7%20Mar%202026-9B72FF.svg?style=flat" />
 </a>
 </p>
 <br />
 
 
-[![Visit WadaIndex](https://img.shields.io/badge/View-WadaIndex-9B72FF?style=flat)](https://wadaindex.vercel.app)
+[![Visit Iro-Kumi](https://img.shields.io/badge/View-Iro-Kumi-9B72FF?style=flat)](https://wadaindex.vercel.app)
 
-<img width="100%" alt="WadaIndex Preview" src="/public/preview.png" />
+<img width="100%" alt="Iro-Kumi Preview" src="/public/preview.png" />
 
 ⭐ Star the repo if you appreciate the aesthetic — it really helps!
 
@@ -96,8 +96,8 @@ Node.js (v18+)
 Clone the Repository
 Bash
 
-git clone https://github.com/byllzz/wadaindex.git
-cd wadaindex
+git clone https://github.com/byllzz/iro-Kumi.git
+cd iro-Kumi
 Setup
 Bash
 
@@ -112,5 +112,3 @@ npm run dev
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
 
 ---
-
-# <p align="center">*Inspired by "A Dictionary of Color Combinations" by Wada Sanzō.*</p>

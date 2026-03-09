@@ -11,19 +11,19 @@ export default function Footer() {
       {/* Large  Text */}
       <div className=" w-full select-none pointer-events-none">
         <h1
-          className="text-[16.5vw] font-bold leading-none opacity-100 uppercase tracking-tighter"
+          className="text-[15.5vw] font-bold leading-none opacity-100 uppercase tracking-tighter"
           style={{
             color: 'transparent',
-            WebkitTextStroke: '1px #cccccc59', // zinc-600 color
+            WebkitTextStroke: '2px #cccccc', // zinc-600 color
           }}
         >
-          WadaIndex
+          WadaSanzō
         </h1>
       </div>
       <div className="w-full max-w-[1560px] mx-auto grid grid-cols-2 md:grid-cols-2 gap-8">
         {/* col -1*/}
         <div className="space-y-4">
-          <h2 className="font-fair text-4xl font-bold text-zinc-100 tracking-tight">Wada Index</h2>
+          <h2 className="font-fair text-4xl font-bold text-zinc-100 tracking-tight">Iro Kumi</h2>
           <p className="text-sm leading-relaxed max-w-xs">
             A digital preservation of Wada Sanzō’s 1930s color theory. Exploring the harmony between
             traditional Japanese aesthetics and modern design.
@@ -47,7 +47,7 @@ export default function Footer() {
               Common Questions
             </Link>
             <a
-              href="https://github.com/byllzz/wada-index"
+              href="https://github.com/byllzz/iro-kumi"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition-colors text-sm"
@@ -77,7 +77,9 @@ export default function Footer() {
       {/* copyright & license */}
       <div className="w-full py-8 border-t border-zinc-900 flex  md:flex-row justify-center items-center  uppercase tracking-widest">
         <div className="flex flex-col items-center justify-center">
-          <p className='uppercase font-fair text-zinc-300/90 text-sm'>© 2025 Colors of Wada Index</p>
+          <p className="uppercase font-fair text-zinc-300/90 text-sm">
+            © 2026 Iro Kumi - A Dictionary of Color Combinations
+          </p>
           <Link
             to="/license"
             className="font-fair capitalize text-[18px] underline md:text-[18px] mb-4 tracking-tight"
