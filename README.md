@@ -1,4 +1,4 @@
-# <a href="https://wadaindex.vercel.app" target="_blank">Iro-Kumi - A Digital Dictionary of Color Combinations</a>
+# <a href="https://irokumi.vercel.app" target="_blank">Iro-Kumi - A Digital Dictionary of Color Combinations</a>
 Iro-Kumi is a high-fidelity digital archive of Wada Sanzō’s seminal 6-volume color study from the 1930s. Explore a curated collection of 162 traditional Japanese pigments, discover historical multi-color harmonies (Plates), and experience the intersection of early 20th-century color theory and modern web design.
 
 Built for archival precision, monumental typography, and minimalist immersion — bringing a masterpiece of color history to the browser.
@@ -19,7 +19,7 @@ Built for archival precision, monumental typography, and minimalist immersion �
 <br />
 
 
-[![Visit Iro-Kumi](https://img.shields.io/badge/View-Iro--Kumi-9B72FF?style=flat)](https://iro-kumi.vercel.app)
+[![Visit Iro-Kumi](https://img.shields.io/badge/View-Iro--Kumi-9B72FF?style=flat)](https://irokumi.vercel.app)
 
 <img width="100%" alt="Iro-Kumi Preview" src="/public/preview.png" />
 
@@ -111,4 +111,3 @@ npm run dev
 ## License 📄
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
 
----
