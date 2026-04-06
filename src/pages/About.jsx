@@ -10,7 +10,7 @@ export default function About() {
           style={{
             writingMode: 'vertical-rl',
             color: 'transparent',
-            WebkitTextStroke: '2px #ffffff',
+            WebkitTextStroke: '2px #333',
           }}
         >
           和田三造

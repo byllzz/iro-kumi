@@ -3,14 +3,14 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 export default function License() {
   return (
-    <section className="min-h-screen bg-white text-black pt-32 pb-20 px-6 md:px-16 relative overflow-hidden pt-10">
+    <section className="min-h-screen bg-black text-white pt-32 pb-20 px-6 md:px-16 relative overflow-hidden pt-10">
       {/* Background Watermark  */}
       <div className="absolute top-10 left-0 w-full select-none pointer-events-none z-0">
         <h1
           className="text-[20vw] font-bold leading-none uppercase tracking-tighter opacity-10"
           style={{
             color: 'transparent',
-            WebkitTextStroke: '1px #3f3f46',
+            WebkitTextStroke: '1px #ccc',
           }}
         >
           Legal
@@ -21,7 +21,7 @@ export default function License() {
         {/* Header */}
         <header className="mb-16 border-b border-zinc-800 pb-10">
           <h1 className="font-fair text-5xl md:text-6xl mb-4 tracking-tight">License & Rights</h1>
-          <p className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
+          <p className="text-white font-mono text-sm uppercase tracking-widest">
             Last Updated: March 2026
           </p>
         </header>
@@ -85,8 +85,8 @@ export default function License() {
               </div>
 
               {/* stamp */}
-              <div className="w-24 h-24 border-2 border-zinc-800 rounded-full flex items-center justify-center rotate-12 opacity-50">
-                <span className="text-[10px] text-center uppercase tracking-tighter font-bold text-zinc-500">
+              <div className="w-24 h-24 border-2 border-zinc-500 rounded-full flex items-center justify-center rotate-12 opacity-50">
+                <span className="text-[10px] text-center uppercase tracking-tighter font-bold text-white">
                   Iro Kumi
                   <br />
                   Official

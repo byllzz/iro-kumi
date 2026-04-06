@@ -32,7 +32,7 @@ export default function Faqs() {
           style={{
             writingMode: 'vertical-rl',
             color: 'transparent',
-            WebkitTextStroke: '2px #ffffff',
+            WebkitTextStroke: '2px #333',
           }}
         >
           質問
@@ -44,7 +44,7 @@ export default function Faqs() {
         {/* header section */}
         <div className="mb-24 border-l border-zinc-800 pl-8">
           <div className="inline-block bg-[#b91c1c] text-white text-[10px] px-2 py-1 mb-6 tracking-[0.3em] font-bold">
-            SUPPORT
+            Questions You have?
           </div>
           <h1 className="font-fair text-7xl md:text-9xl text-white tracking-tighter leading-none mb-4">
             Common <br /> Queries

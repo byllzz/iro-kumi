@@ -1,136 +1,121 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { Sparkles, Palette } from 'lucide-react';
 
 export default function Hero() {
-  const containerRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  // background text behavior
-  const artScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const artOpacity = useTransform(scrollYProgress, [0, 0.4], [0.5, 0]);
-
-  const fadeInUp = {
-    initial: { y: 40, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
-  };
-
-  const staggerContainer = {
-    animate: { transition: { staggerChildren: 0.1 } }
-  };
+  // We duplicate the text inside the marquee to create a seamless loop
+  const ScrollingText = ({
+    text,
+    colorClass,
+    speed = '10s',
+    reverse = false,
+  }) => (
+    <div
+      className={`inline-flex items-center ${colorClass} h-16 md:h-32 rounded-full overflow-hidden w-[250px] md:w-[350px] shadow-lg border-2 border-black`}
+    >
+      <div
+        className="flex whitespace-nowrap items-center justify-center"
+        style={{
+          animation: `marquee ${speed} linear infinite ${reverse ? 'reverse' : 'normal'}`,
+        }}
+      >
+        {/* The text is repeated to ensure no gaps during the transition */}
+        <span className="text-2xl md:text-5xl font-normal tracking-normal font-fair uppercase px-4 flex items-center justify-center">
+          {text}
+        </span>
+        <span>
+          <Sparkles className="fill-current font-normal" size={32} />
+        </span>
+        <span className="text-2xl md:text-5xl font-normal tracking-normal font-fair uppercase px-4 flex items-center justify-center">
+          {text}
+        </span>
+      </div>
+    </div>
+  );
 
   return (
-    <section
-      ref={containerRef}
-      className="relative bg-[#F4EFEA] text-[#1A1A1A] font-serif overflow-hidden md:overflow-visible"
-    >
-      {/*  sticky background  */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden pointer-events-none">
-        <motion.div
-          style={{ scale: artScale, opacity: artOpacity }}
-          className="text-[#F8CCD3] text-[60vw] md:text-[40vw] font-serif font-bold leading-none tracking-tighter select-none"
-        >
-          Art
-        </motion.div>
-      </div>
+    <div className="min-h-screen p-4 md:p-8 flex flex-col items-center justify-center font-sans overflow-hidden ">
+      <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+        `}
+      </style>
 
-      {/*foreground content  */}
-      <div className="relative z-10 -mt-[100vh]">
-        <main className="relative flex flex-col items-center justify-center w-full min-h-screen px-4 md:px-0 pt-10 md:pt-50">
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="relative z-10 flex flex-col items-center w-full max-w-[1400px] mx-auto"
-          >
-            {/* row 1: welcome + sticker */}
-            <div className="relative flex items-center justify-center w-full">
-              <motion.h1
-                variants={fadeInUp}
-                className="text-[14vw] md:text-[11vw] leading-[0.85] md:leading-[0.8] tracking-tighter font-medium text-center z-10"
-              >
-                Welcome to the
-              </motion.h1>
-
-              <motion.div
-                initial={{ scale: 0, rotate: -20 }}
-                animate={{ scale: 1, rotate: 12 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
-                className="absolute -right-2 md:right-[15%] -top-4 md:top-10 w-14 h-14 md:w-24 md:h-24 rounded-full border border-[#1A1A1A] bg-[#F4EFEA] flex flex-col items-center justify-center z-20 shadow-sm"
-              >
-                <span className="text-sm md:text-2xl mb-0.5 md:mb-1">:)</span>
-                <span className="text-[5px] md:text-[8px] uppercase tracking-[0.2em] font-sans font-bold text-center px-1">
-                   est. 1933
-                </span>
-              </motion.div>
+      <div className="w-full max-w-[1400px] background-color shadow-2xl overflow-hidden p-8 md:p-12 relative flex flex-col justify-between min-h-[85vh]">
+        {/* Main Content */}
+        <div className="relative z-10 flex-1 flex flex-col items-center top-5 justify-center max-w-7xl mx-auto w-full px-4  md:px-8">
+          <div className="text-6xl md:text-8xl lg:text-[9.5rem] tracking-tighter leading-[.9] font-black text-white">
+            {/* Line 1: Curating + Infinite Orange Pill */}
+            <div className="flex flex-nowrap items-center gap-x-6 gap-y-4 mb-4">
+              <span className="font-fair">Curating</span>
+              <div>
+                <ScrollingText
+                  text="Unique Palettes"
+                  colorClass="bg-[#DD6E42] text-white"
+                  speed="8s"
+                />
+              </div>
             </div>
 
-            {/* row 2: playground */}
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col items-center w-full"
-            >
-              <span className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] opacity-40 mb-2 font-sans">
-                [ scroll to explore ]
-              </span>
-              <div className="text-[16vw] md:text-[11vw] leading-[0.8] tracking-tighter font-medium mt-1 md:mt-4 z-20 italic">
-                playground
-              </div>
-            </motion.div>
-
-            {/* row 3: name lockup */}
-            <div className="flex flex-col md:flex-row items-center md:items-start mt-4 md:mt-1 relative w-full justify-center">
-
-              {/* the "of" circle - hidden on tiny screens or scaled down */}
-              <motion.div
-                variants={fadeInUp}
-                className="absolute left-[5%] md:relative md:left-0 bottom-[60%] md:bottom-20 w-20 h-20 md:w-50 md:h-50 rounded-full border border-[#1A1A1A] flex items-center justify-center bg-[#F4EFEA]/50 backdrop-blur-md z-30 -mr-0 md:-mr-12 translate-y-0 md:translate-y-8"
-              >
-                <span className="text-4xl md:text-[10vw] leading-none tracking-tighter">of</span>
-              </motion.div>
-
-              {/* wada sanzo text */}
-              <div className="flex flex-col items-center md:items-start z-20 mt-10 md:mt-0 translate-y-0 md:translate-y-24">
-                <motion.span
-                  variants={fadeInUp}
-                  className="text-[20vw] md:text-[14vw] leading-[0.7] tracking-tighter font-medium uppercase"
-                >
-                  Wada
-                </motion.span>
-                <motion.span
-                  variants={fadeInUp}
-                  className="relative text-[16vw] md:text-[11vw] leading-[0.8] tracking-tighter font-medium md:ml-48 italic"
-                >
-                  Sanzō
-                </motion.span>
-              </div>
-
-              {/* side description - becomes a bottom badge on mobile */}
-              <motion.div
-                variants={fadeInUp}
-                className="mt-12 md:mt-0 md:w-80 flex lg:absolute right-0 md:right-[5%] top-[20%] md:-translate-y-1/2 items-start gap-3 md:gap-4 text-[#1A1A1A] z-30 px-6 md:px-0"
-              >
-                <span className="hidden md:block text-5xl md:text-7xl font-light leading-none opacity-20">(</span>
-                <div className="flex flex-col gap-2 md:gap-4 text-center md:text-left">
-                   <p className="text-sm md:text-lg font-sans font-medium leading-snug md:leading-tight md:max-w-[280px]">
-                    A dictionary of color combinations by the visionary artist who redefined Japanese aesthetics.
-                  </p>
-                   {/* hint: curated by chungi yoo */}
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] opacity-40 font-sans">
-                    archive curated by chungi yoo
-                  </span>
-                </div>
-                <span className="hidden md:block text-5xl md:text-7xl font-light leading-none opacity-20">)</span>
-              </motion.div>
+            {/* Line 2: with Small Text */}
+            <div className="flex flex-col md:flex-row md:items-center gap-x-12  mb-4 relative left-15">
+              <span className="font-fair">for digital</span>
+              <p className="text-[18px] tracking-normal font-normal font-outfit leading-5 max-w-[300px]">
+                The ultimate playground to discover and export high-contrast color pairings.
+              </p>
             </div>
-          </motion.div>
-        </main>
+
+            {/* Line 3: artists + Infinite Blue Pill */}
+            <div className="flex items-center justify-end relative top-5">
+              <div className="flex md:items-center justify-end w-[100%] relative right-25">
+                <ScrollingText
+                  text="Visual Stories"
+                  colorClass="bg-[#E2FF46] text-black"
+                  speed="8s"
+                  reverse={true}
+                />
+                <span className="font-fair">artist</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+
+      <div className="relative z-10 mt-12 pt-8 border-t-2 border-black/10 flex justify-between items-center flex-wrap gap-6">
+        <div className="flex items-center gap-4">
+          <span className="text-xs font-black uppercase tracking-widest text-gray-400">
+            Current Trend:
+          </span>
+          <div className="flex -space-x-2">
+            <div className="w-10 h-10 rounded-full bg-[#FF4D00] border-2 border-white shadow-sm"></div>
+            <div className="w-10 h-10 rounded-full bg-[#00E5FF] border-2 border-white shadow-sm"></div>
+            <div className="w-10 h-10 rounded-full bg-[#E2FF46] border-2 border-white shadow-sm"></div>
+            <div className="w-10 h-10 rounded-full bg-[#8154F0] border-2 border-white shadow-sm"></div>
+          </div>
+        </div>
+
+        <div className="flex gap-8 items-center overflow-x-auto">
+          <span className="font-bold text-lg opacity-40 hover:opacity-100 cursor-default transition-opacity">
+            PANTONE®
+          </span>
+          <span className="font-bold text-lg opacity-40 hover:opacity-100 cursor-default transition-opacity">
+            ADOBE COLOR
+          </span>
+          <span className="font-bold text-lg opacity-40 hover:opacity-100 cursor-default transition-opacity">
+            KHROMA
+          </span>
+          <span className="font-bold text-lg opacity-40 hover:opacity-100 cursor-default transition-opacity">
+            COOLORS
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }

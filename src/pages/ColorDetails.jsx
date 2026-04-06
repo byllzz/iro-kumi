@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ColorNotFound from './ColorNotFound';
 
@@ -18,8 +18,11 @@ export default function ColorDetails() {
 
   if (!item) return <ColorNotFound />;
 
+
+
+
   return (
-    <div className="min-h-screen bg-white text-black selection:bg-white selection:text-black pt-40">
+    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black pt-40">
       <div className="absolute top-30 flex justify-between items-start w-full items-center justify-between px-10">
           <button
             onClick={() => navigate(-1)}
@@ -40,7 +43,7 @@ export default function ColorDetails() {
 
 
         <div className="flex justify-between items-end">
-          <h1 className="text-7xl md:text-[12vw] font-serif leading-none tracking-tighter text-black mix-blend-difference">
+          <h1 className="text-7xl md:text-[12vw] font-serif leading-none tracking-tighter text-white mix-blend-difference">
             {item.name}
           </h1>
           <span className="font-mono text-sm mb-4 opacity-70 mix-blend-difference">{item.hex}</span>
@@ -50,35 +53,35 @@ export default function ColorDetails() {
       {/* Technical Data Section */}
       <div className="px-6  md:px-16 py-24 grid  grid-cols-1 md:grid-cols-3 gap-12 border-b border-zinc-900">
         <div className="space-y-2">
-          <p className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">Hex Code</p>
+          <p className="font-mono text-[10px] text-white uppercase tracking-widest">Hex Code</p>
           <p className="text-3xl font-serif italic">{item.hex}</p>
         </div>
 
         <div className="space-y-2">
-          <p className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
+          <p className="font-mono text-[10px] text-white uppercase tracking-widest">
             RGB Values
           </p>
           <p className="text-3xl font-serif italic">{hexToRgb(item.hex)}</p>
         </div>
 
         <div className="space-y-2">
-          <p className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">Category</p>
+          <p className="font-mono text-[10px] text-white uppercase tracking-widest">Category</p>
           <p className="text-3xl font-serif italic">{item.category}</p>
         </div>
       </div>
 
       {/*  Description & Narrative */}
       <div className="px-8 md:px-16 py-24 max-w-4xl">
-        <h2 className="font-mono text-[10px] text-zinc-600 uppercase tracking-[0.5em] mb-10">
+        <h2 className="font-mono text-[10px] text-white uppercase tracking-[0.5em] mb-10">
           Historical Context
         </h2>
-        <p className="text-4xl md:text-5xl font-serif leading-tight text-black italic">
+        <p className="text-4xl md:text-5xl font-serif leading-tight text-white italic">
           "{item.description}"
         </p>
 
         <div className="mt-20 flex gap-4 items-center">
-          <span className="text-8xl font-serif text-zinc-800">{item.kanji}</span>
-          <div className="h-[1px] flex-grow bg-zinc-900"></div>
+          <span className="text-8xl font-serif text-zinc-200">{item.kanji}</span>
+          <div className="h-[1px] flex-grow bg-zinc-400"></div>
         </div>
       </div>
     </div>
