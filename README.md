@@ -25,22 +25,6 @@ Built for archival precision, monumental typography, and minimalist immersion �
 
 ⭐ Star the repo if you appreciate the aesthetic — it really helps!
 
-<!-- <p align="left">
-✔️ 162 Individual Pigments (Traditional Japanese palette) <br>
-✔️ Historical Color Plates (2, 3, and 4-color harmonies)<br>
-✔️ Monumental Typography (Fluid Playfair Display scaling)<br>
-✔️ Real-time Search with Instant Filtering (Name & Hex)<br>
-✔️ Dynamic Detail Panels (Full-screen color immersion)<br>
-✔️ Technical Specs (Automatic Hex to RGB/CMYK conversion)<br>
-✔️ Mix-Blend-Mode UI (Context-aware text readability)<br>
-✔️ Proportional Weight Bars (Visualizing color harmony balance)<br>
-✔️ Custom "Ghost" Scrollbar (Minimalist UX design)<br>
-✔️ Responsive Grid Layout (Optimized for all screen sizes)<br>
-✔️ Fully Client-Side (Fast, snappy navigation via React Router)<br>
-✔️ Dark Mode Optimized (Japandi-inspired aesthetic)<br>
-✔️ Deployed on Vercel (High-performance global delivery)<br>
-</p> -->
-
 ##  Key Features
 
 | Category | Highlights |
@@ -108,7 +92,7 @@ npm install
 npm run dev
 ~~~
 
-## License 
+## License
 This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details. <br>
 This project is inspired from **Wada Sanzo" Book!
 

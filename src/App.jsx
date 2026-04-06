@@ -8,15 +8,12 @@ import ColorNotFound from './pages/ColorNotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Faqs from './components/layout/Faqs';
 import PlateDetails from './pages/PlateDetails';
-// Import your new component
 import ScrollToTop from './components/layout/ScrollToTop';
 
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Add it here! */}
       <ScrollToTop />
-
       <div>
         <Navbar />
         <Routes>

@@ -11,7 +11,7 @@ export default function ContentGrid({ activeView, filteredColors, filteredPlates
   return (
     <div className="min-h-[70vh] flex flex-col gap-8">
 
-      {/* --- Collection Header Metadata --- */}
+      {/* metadata */}
       <div className="flex justify-between items-end border-b border-white/5 pb-4 px-2">
         <div className="flex items-center gap-4">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
@@ -30,12 +30,10 @@ export default function ContentGrid({ activeView, filteredColors, filteredPlates
         </div>
       </div>
 
-      {/* --- The Grid Container --- */}
+      {/* grid */}
       <div className="relative">
+        {/* single color */}
         {activeView === 'colors' ? (
-          /* COLOR GRID: Tight, specimen-style layout.
-             Increased to 10 cols on large screens for that "tapestry" look.
-          */
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 md:gap-3 transition-all duration-1000 ease-in-out animate-in fade-in slide-in-from-bottom-8">
             {filteredColors.length > 0 ? (
               filteredColors.map((item, idx) => (
@@ -54,9 +52,7 @@ export default function ContentGrid({ activeView, filteredColors, filteredPlates
             )}
           </div>
         ) : (
-          /* PLATE GRID: Spacious, editorial layout.
-             Fewer columns to let the "harmonies" breathe.
-          */
+            // plate card
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-12 md:gap-16 transition-all duration-1000 ease-in-out animate-in fade-in slide-in-from-bottom-8">
             {filteredPlates.length > 0 ? (
               filteredPlates.map((plate, index) => (
@@ -77,12 +73,12 @@ export default function ContentGrid({ activeView, filteredColors, filteredPlates
         )}
       </div>
 
-      {/* --- Subtle Decorative Footer for the Grid --- */}
+      {/*footer for this grid */}
       {itemCount > 0 && (
-        <div className="mt-12 flex justify-center opacity-20 group">
+        <div className="mt-12 flex justify-center opacity-60 group">
           <div className="flex flex-col items-center gap-2">
-            <div className="w-[1px] h-12 bg-white transition-all group-hover:h-20" />
-            <span className="font-mono text-[9px] uppercase tracking-[0.5em]">End of Collection</span>
+            <div className="w-[1px] h-12 bg-white  transition-all group-hover:h-20" />
+            <span className="font-mono text-[12px] text-white uppercase tracking-[0.5em]">End of Collection</span>
           </div>
         </div>
       )}

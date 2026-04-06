@@ -18,9 +18,6 @@ export default function ColorDetails() {
 
   if (!item) return <ColorNotFound />;
 
-
-
-
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black pt-40">
       <div className="absolute top-30 flex justify-between items-start w-full items-center justify-between px-10">

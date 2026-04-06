@@ -22,7 +22,7 @@ export default function SingleColorCard({ item }) {
       className="group relative flex flex-col w-full cursor-pointer bg-white overflow-hidden border border-black/5 hover:border-black/20 transition-all duration-300"
       onClick={handleDetails}
     >
-      {/* Main Color Area */}
+      {/* main Color Area */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#f0f0f0]">
         <div
           className="absolute inset-0 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110"
@@ -50,7 +50,7 @@ export default function SingleColorCard({ item }) {
         </div>
       </div>
 
-      {/* Metadata Section */}
+      {/* metadata Section */}
       <div className="relative p-3 flex flex-col gap-3 bg-white z-10">
         <div className="flex flex-col items-start justify-between gap-2">
           <div className="flex flex-col gap-1">
@@ -90,7 +90,7 @@ export default function SingleColorCard({ item }) {
         </div>
       </div>
 
-      {/* Floating Tooltip Label (Optional) */}
+      {/* Floating Tooltip Label */}
       <div
         className="absolute top-0 right-0 w-1 h-0 transition-all duration-700 group-hover:h-full"
         style={{ backgroundColor: item.hex }}

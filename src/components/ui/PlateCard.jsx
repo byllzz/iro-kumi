@@ -18,7 +18,7 @@ export default function PlateCard({ plate }) {
             key={index}
             style={{
               backgroundColor: color,
-              flex: plate.weights[index] // Uses the weight (e.g., 2:1:1) from JSON data,
+              flex: plate.weights[index] // Uses the weight
             }}
             className="h-full transition-transform duration-700 hover:scale-[1.05] relative group/color"
           >
