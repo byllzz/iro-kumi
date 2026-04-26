@@ -2,117 +2,155 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
+const COLOR_STRIP = ['#8B2635','#C84B31','#E2FF46','#2E9CCA','#2D5016','#8154F0'];
+
+const LINKS = [
+  { to: '/',       label: 'Dictionary', sub: 'Browse all 486 colors' },
+  { to: '/about',  label: 'About',      sub: 'The Wada Sanzo archive' },
+  { to: '/faqs',   label: 'FAQ',        sub: 'Common questions' },
+];
+
+const GitHubIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+    style={{ width: 16, height: 16, flexShrink: 0 }}>
+    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+  </svg>
+);
+
+const LogoMark = () => (
+  <NavLink to="/" className="flex items-center gap-2 group">
+    {/* 4-color swatch strip as logo icon */}
+    <div className="flex overflow-hidden rounded-full border border-black/10 h-[22px]">
+      {['#8B2635','#C84B31','#E2FF46','#2E9CCA'].map(c => (
+        <div key={c} className="w-[10px] h-full" style={{ background: c }} />
+      ))}
+    </div>
+    <span className="font-outfit text-[15px] font-semibold tracking-tight text-black">
+      Hex<span className="text-[#C84B31]">folio</span>
+    </span>
+  </NavLink>
+);
+
+const ColorStrip = ({ rounded = '' }) => (
+  <div className={`flex h-[3px] ${rounded}`}>
+    {COLOR_STRIP.map(c => (
+      <div key={c} className="flex-1" style={{ background: c }} />
+    ))}
+  </div>
+);
+
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [mobileMenuOpen]);
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
-  const linkStyle = ({ isActive }) =>
-    `relative font-outfit text-[14px] font-medium capitalize transition-colors duration-200 ${
-      isActive ? 'text-black' : 'text-black/30 hover:text-zinc-800'
-    }`;
-
-  const mobileLinkStyle = ({ isActive }) =>
-    `text-2xl font-fair tracking-[0.2em] uppercase transition-all ${
-      isActive ? 'text-black scale-110' : 'text-black/40'
+  const linkCls = ({ isActive }) =>
+    `relative font-outfit text-[13px] font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+      isActive
+        ? 'text-black after:absolute after:bottom-[3px] after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:rounded-full after:bg-[#C84B31]'
+        : 'text-black/35 hover:text-black hover:bg-black/[0.04]'
     }`;
 
   return (
-    <>
-      <nav className="fixed w-full top-3 sm:top-5 left-0 right-0 z-[60] flex justify-center px-4">
-        <div
-          className="flex items-center justify-between px-4 h-12 w-full max-w-[450px] text-black bg-white/90 backdrop-blur-md border border-black/5 shadow-sm rounded-full"
-        >
-          {/* logo */}
-          <div className="flex items-center shrink-0">
-            <NavLink to="/" className="flex items-center gap-1 group">
-              <span className="flex items-center justify-center">
-                <svg
-                  fill="#000"
-                  height={28}
-                  width={28}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="transition-transform duration-300 group-hover:rotate-12"
-                >
-                  <path d="M253.72,202.53a4,4,0,0,0,4.56,0,151.88,151.88,0,0,1,128.44-20.41,4,4,0,0,0,5.15-4C388.8,105.86,329,48,256,48S123.2,105.86,120.13,178.15a4,4,0,0,0,5.15,4,151.88,151.88,0,0,1,128.44,20.41Z"></path>
-                  <path d="M405.31,212.56a152.53,152.53,0,0,1-83.08,108.23,4,4,0,0,0-2.28,3.69c0,1.17.05,2.34.05,3.52a151.58,151.58,0,0,1-47.15,109.94,4,4,0,0,0,.64,6.31A135.24,135.24,0,0,0,344,464c72.07,0,134.1-60.28,136-132.34a136.07,136.07,0,0,0-68.76-121.87A4,4,0,0,0,405.31,212.56Z"></path>
-                  <path d="M390.57,203.67a4,4,0,0,0-2.69-4.4,135.84,135.84,0,0,0-114.4,12.49,4,4,0,0,0-.64,6.29,151.92,151.92,0,0,1,44.47,81.4,4,4,0,0,0,5.94,2.72A136.29,136.29,0,0,0,390.57,203.67Z"></path>
-                  <path d="M192,328c0-1.18,0-2.35.05-3.52a4,4,0,0,0-2.28-3.69,152.53,152.53,0,0,1-83.08-108.23,4,4,0,0,0-5.88-2.77A136.07,136.07,0,0,0,32.05,331.66C34,403.72,96,464,168.05,464a135.24,135.24,0,0,0,70.46-19.75,4,4,0,0,0,.64-6.31A151.58,151.58,0,0,1,192,328Z"></path>
-                  <path d="M168,192a135.34,135.34,0,0,0-43.88,7.27,4,4,0,0,0-2.69,4.4,136.29,136.29,0,0,0,67.32,98.5,4,4,0,0,0,5.94-2.72,151.92,151.92,0,0,1,44.47-81.4,4,4,0,0,0-.64-6.29A135.18,135.18,0,0,0,168,192Z"></path>
-                  <path d="M256,336a151.44,151.44,0,0,1-42.72-6.12,4,4,0,0,0-5.15,4,135.69,135.69,0,0,0,45.18,95.4,4,4,0,0,0,5.38,0,135.69,135.69,0,0,0,45.18-95.4,4,4,0,0,0-5.15-4A151.44,151.44,0,0,1,256,336Z"></path>
-                  <path d="M302.57,308.33a135.94,135.94,0,0,0-43.87-81.58,4.06,4.06,0,0,0-5.4,0,135.94,135.94,0,0,0-43.87,81.58,4,4,0,0,0,2.69,4.4,136.06,136.06,0,0,0,87.76,0A4,4,0,0,0,302.57,308.33Z"></path>
-                </svg>
-              </span>
-              <span className="font-fair text-[18px] tracking-tighter text-black">
-                Iro<span className="italic font-bold">Sai</span>
-              </span>
-            </NavLink>
-          </div>
+    <div>
+      <nav className="fixed top-4 left-0 right-0 z-[60] flex justify-center px-4 font-outfit w-full">
+        <div className="w-full max-w-[700px] overflow-hidden rounded-full"
+          style={{ boxShadow: '0 2px 20px rgba(0,0,0,.08)' }}>
 
-          {/* navigation */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-4">
-              <NavLink to="/" className={linkStyle}>Dictionary</NavLink>
-              <NavLink to="/about" className={linkStyle}>About</NavLink>
-              <NavLink to="/faqs" className={linkStyle}>FAQ</NavLink>
-              <div className="h-4 w-[1px] bg-black/20 mx-1" />
-              <a
-                href="https://github.com/byllzz/irosai"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black/70 hover:text-black transition-colors"
-              >
-                <FaGithub size={20} />
-              </a>
+          {/* colour strip sits above the pill */}
+          <ColorStrip />
+
+          <div className="flex items-center justify-between bg-white/95 backdrop-blur-md border-x border-b border-black/[0.07] px-6 h-12 rounded-b-full">
+            <LogoMark />
+
+            {/* Desktop links */}
+            <div className="hidden md:flex items-center gap-0.5">
+              {LINKS.map(({ to, label }) => (
+                <NavLink key={to} to={to} className={linkCls}>{label}</NavLink>
+              ))}
             </div>
 
-            {/* toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
-              className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 z-[70]"
-            >
-              <div className={`w-5 h-[1.5px] bg-black transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[7.5px]' : ''}`} />
-              <div className={`w-5 h-[1.5px] bg-black transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-              <div className={`w-5 h-[1.5px] bg-black transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[7.5px]' : ''}`} />
-            </button>
+            {/* Right actions */}
+            <div className="flex items-center gap-2">
+              <div className="hidden md:block w-px h-4 bg-black/10 mx-1" />
+          <a
+                href="https://github.com/byllzz/hexfolio"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center w-8 h-8 rounded-full border border-black/10 text-black/50 hover:bg-black hover:text-white hover:border-black transition-all duration-200"
+              >
+                <GitHubIcon />
+              </a>
+              <button className="hidden md:flex items-center gap-1.5 bg-black text-white text-[12px] font-medium px-4 py-2 rounded-full hover:opacity-80 transition-opacity">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d4f53c] flex-shrink-0" />
+                Explore
+              </button>
+
+              {/* Hamburger — mobile only */}
+              <button
+                onClick={() => setOpen(o => !o)}
+                className="md:hidden flex flex-col justify-center items-center gap-[5px] w-9 h-9 rounded-full bg-zinc-100 border border-black/07"
+                aria-label="Toggle menu"
+              >
+                <span className={`block w-[14px] h-[1.5px] bg-black rounded transition-all duration-300 ${open ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+                <span className={`block w-[14px] h-[1.5px] bg-black rounded transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+                <span className={`block w-[14px] h-[1.5px] bg-black rounded transition-all duration-300 ${open ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* mobile overlay */}
+      {/* Mobile overlay */}
       <div
-        className={`
-          fixed inset-0 z-[55] bg-white/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10 transition-all duration-500 ease-in-out md:hidden
-          ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}
-        `}
-      >
-        <NavLink to="/" onClick={() => setMobileMenuOpen(false)} className={mobileLinkStyle}>
-          Dictionary
-        </NavLink>
-        <NavLink to="/about" onClick={() => setMobileMenuOpen(false)} className={mobileLinkStyle}>
-          About
-        </NavLink>
-        <NavLink to="/faqs" onClick={() => setMobileMenuOpen(false)} className={mobileLinkStyle}>
-          FAQ
-        </NavLink>
+  className =
+    {`fixed inset-x-4 top-[76px] z-[55] md:hidden  bg-white rounded-2xl border border-black/[0.07] overflow-hidden transition-all duration-30 ease-out origin-top ${open ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'}`}>
+        <ColorStrip />
 
+        <div className="p-2">
+          {LINKS.map(({ to, label, sub }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `flex items-center justify-between px-3 py-3 rounded-xl transition-colors ${
+                  isActive ? 'bg-zinc-50' : 'hover:bg-zinc-50'
+                }`
+              }
+            >
+              <div>
+                <div className="text-[14px] font-medium text-black">{label}</div>
+                <div className="text-[11px] text-black/35 mt-0.5">{sub}</div>
+              </div>
+              <span className="text-black/20 text-sm">→</span>
+            </NavLink>
+          ))}
+        </div>
+
+        <div className="px-3 pb-3">
         <a
-          href="https://github.com/byllzz/irosai"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-4 p-3 rounded-full bg-black text-white hover:scale-110 transition-transform"
-        >
-          <FaGithub size={28} />
-        </a>
-      </div>
-    </>
+            href="https://github.com/byllzz/hexfolio"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-black text-white text-[13px] font-medium py-3 rounded-xl hover:opacity-82 transition-opacity"
+          >
+            <GitHubIcon />
+            View on GitHub
+          </a>
+        </div>
+        </div>
+
+      {/* Backdrop tap to close */}
+      {open && (
+        <div
+          className="fixed inset-0 z-[50] md:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
+    </div>
   );
 }

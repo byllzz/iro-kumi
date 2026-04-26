@@ -1,115 +1,150 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
 
-export default function Hero() {
-  const ScrollingText = ({
-    text,
-    colorClass,
-    speed = '10s',
-    reverse = false,
-  }) => (
-    <div
-      className={`inline-flex items-center ${colorClass} h-12 md:h-24 lg:h-32  rounded-full overflow-hidden w-[160px] xs:w-[200px] sm:w-[280px] md:w-[350px] lg:w-[450px] shadow-lg border-2 border-black shrink-0`}
-    >
-      <div
-        className="flex whitespace-nowrap items-center"
-        style={{
-          animation: `marquee ${speed} linear infinite ${reverse ? 'reverse' : 'normal'}`,
-        }}
-      >
-        {[1, 2, 3].map((i) => (
-          <React.Fragment key={i}>
-            <span className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-medium tracking-normal font-fair uppercase px-3 md:px-6">
-              {text}
-            </span>
-            <Sparkles className="fill-current" size={window?.innerWidth < 768 ? 16 : 24} />
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
-  );
+const TILES = [
+  {c:'#8B2635',n:'Akane'},{c:'#C84B31',n:'Shu'},{c:'#E2FF46',n:'Hanada'},
+  {c:'#1D3557',n:'Kon'},{c:'#2E9CCA',n:'Asagi'},{c:'#2D5016',n:'Matcha'},
+  {c:'#C8A96E',n:'Kincha'},{c:'#8154F0',n:'Fuji'},{c:'#FF5C2B',n:'Hiiro'},
+  {c:'#F0EDE8',n:'Shiro'},{c:'#4B1D8C',n:'Murasaki'},{c:'#1B5E7B',n:'Tokiwa'},
+  {c:'#DD6E42',n:'Tochi'},{c:'#0a0a0a',n:'Kuro'},{c:'#6B8C3A',n:'Wakaba'},
+];
 
+const MQ_WORDS = ['Japanese Tradition','Wada Sanzo',` 108 Colors`,'Export Ready','High Contrast','Edo Period','Color Science','Visual Identity'];
+
+const InlineChip = ({ swatches, label }) => (
+  <span className="inline-flex items-center rounded-full overflow-hidden border border-white/10 shrink-0 h-[clamp(44px,6vw,80px)] cursor-pointer hover:scale-105 transition-transform" style={{background:'#111'}}>
+    {swatches.map(c => <span key={c} className="h-full w-[clamp(24px,3.5vw,48px)]" style={{background:c}} />)}
+    <span className="px-4 text-[clamp(9px,1.1vw,13px)] uppercase tracking-widest font-semibold text-white/55 whitespace-nowrap font-outfit">{label}</span>
+  </span>
+);
+
+export default function Hero({filteredColors, filteredPlates,}) {
+  const colorCards = filteredColors.length;
+  const platesCards = filteredPlates.length;
   return (
-    <section className="min-h-screen w-full relative top-10 p-0 md:p-8 flex flex-col items-center justify-center font-sans overflow-x-hidden bg-black">
-      <style>
-        {`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.33%); }
-          }
-          .font-fair { font-family: 'Playfair Display', serif; }
-          .font-outfit { font-family: 'Outfit', sans-serif; }
-          .no-scrollbar::-webkit-scrollbar { display: none; }
-          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        `}
-      </style>
+    <section className="bg-[#080808] text-[#f0ede8] font-outfit overflow-hidden min-h-screen flex flex-col">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Outfit:wght@300;400;600&display=swap');
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-outfit   { font-family: 'Outfit', sans-serif; }
+        @keyframes mq { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        .tile-label { opacity:0; transition:opacity .2s; }
+        .tile:hover .tile-label { opacity:1; }
+      `}</style>
 
-      {/* Main Card Hero */}
-      <div className="w-full max-w-[1440px] bg-white rounded-[2rem] md:rounded-[3.5rem] shadow-2xl overflow-hidden p-6 md:p-16 relative flex flex-col justify-center border min-h-[60vh] lg:min-h-[85vh]">
+      {/* Hero area */}
+      <div className="flex-1 flex flex-col">
+        {/* Giant headline */}
+        <div className="px-8 pt-30 md:pt-25 pb-0">
+          {/* Line 1 */}
+          <div className="flex flex-wrap items-center gap-3 md:gap-4 font-playfair font-black leading-[.92] tracking-tight text-[clamp(44px,8.5vw,116px)]">
+            <span>486</span>
+            <InlineChip swatches={['#8B2635', '#C84B31', '#E2FF46']} label="Curated" />
+            <span className="italic text-[#d4f53c]">colors</span>
+          </div>
 
-        <div className="relative z-10 w-full">
-          <div className="text-[14vw] sm:text-[12vw] md:text-[9vw] lg:text-[8.5rem] tracking-tighter leading-[0.9] md:leading-[0.85] font-black text-black flex flex-col gap-4 md:gap-8">
+          {/* Line 2 */}
+          <div className="flex flex-wrap items-center gap-3 md:gap-4 font-playfair font-black leading-[.92] tracking-tight text-[clamp(44px,8.5vw,116px)] mt-1.5">
+            <span style={{ WebkitTextStroke: '1.5px #f0ede8', color: 'transparent' }}>
+              for digital
+            </span>
+            <InlineChip swatches={['#0D2137', '#2E9CCA', '#A8D8EA']} label="Palettes" />
+          </div>
 
-            {/* line 1 */}
-            <div className="flex flex-wrap items-center gap-x-3 md:gap-x-8">
-              <span className="font-fair italic lg:not-italic">Curating</span>
-              <ScrollingText
-                text="Unique Palettes"
-                colorClass="bg-[#DD6E42] text-white"
-                speed="10s"
-              />
-            </div>
-
-            {/* Line 2*/}
-            <div className="flex flex-col md:flex-row md:items-center gap-y-4 gap-x-12 md:ml-[10%] lg:ml-[15%]">
-              <span className="font-fair">for digital</span>
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg tracking-normal font-normal font-outfit leading-relaxed max-w-[260px] md:max-w-[320px] text-zinc-500 italic md:not-italic">
-                The ultimate playground to discover and export high-contrast color pairings for modern interfaces.
-              </p>
-            </div>
-
-            {/* line 3 */}
-            <div className="flex flex-wrap items-center md:justify-end gap-x-3 md:gap-x-8 md:mr-[5%]">
-              <ScrollingText
-                text="Visual Stories"
-                colorClass="bg-[#E2FF46] text-black"
-                speed="12s"
-                reverse={true}
-              />
-              <span className="font-fair">artists</span>
-            </div>
+          {/* Line 3 */}
+          <div className="flex flex-wrap items-center gap-3 md:gap-4 font-playfair font-black leading-[.92] tracking-tight text-[clamp(44px,8.5vw,116px)] mt-1.5 mb-10">
+            <span>&amp; visual</span>
+            <InlineChip swatches={['#2D5016', '#6B8C3A', '#C8A96E']} label="Stories" />
+            <span className="italic">artists.</span>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Area*/}
-      <div className="w-full max-w-[1440px] mt-8 md:mt-12 pt-8 border-t border-zinc-800 flex flex-col lg:flex-row justify-between items-center gap-8 px-4">
+        {/* Bottom 2-col */}
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-white/[0.07] flex-1">
+          {/* Left meta */}
+          <div className="flex flex-col justify-between p-8 border-b md:border-b-0 md:border-r border-white/[0.07]">
+            <p className="text-[13px] text-white/45 leading-[1.8] max-w-sm">
+              High-contrast Japanese color pairings from the Wada Sanzo archive — export-ready for
+              interfaces, design systems, and visual identity.
+            </p>
 
-        {/* Trend Indicators */}
-        <div className="flex items-center gap-4 md:gap-6">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-            Current Trend:
-          </span>
-          <div className="flex -space-x-3 md:-space-x-4">
-            {['#FF4D00', '#00E5FF', '#E2FF46', '#8154F0'].map((color, idx) => (
+            <div className="flex gap-7 mt-7">
+              {[
+                [colorCards, 'Single Colors'],
+                [platesCards, 'Palettes'],
+                ['Edo', 'Origin'],
+              ].map(([n, l]) => (
+                <div key={l}>
+                  <div className="font-playfair font-black text-[30px] leading-none">{n}</div>
+                  <div className="text-[9px] uppercase tracking-[.12em] text-white/30 mt-1">
+                    {l}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3 mt-7 flex-wrap">
+              <a
+                href="#gridContent"
+                className="bg-[#f0ede8] flex items-center gap-2 text-black font-semibold text-[12px] px-6 py-3 rounded-full hover:opacity-85 transition-opacity font-outfit"
+              >
+                Browse Archive{' '}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  style={{ width: 16, height: 16, flexShrink: 0 }}
+                >
+                  <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />
+                  <path
+                    d="M5.5 10.5L10.5 5.5M10.5 5.5H6.5M10.5 5.5V9.5"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Right color mosaic */}
+          <div className="grid grid-cols-5 grid-rows-3" style={{ minHeight: 220 }}>
+            {TILES.map(({ c, n }) => (
               <div
-                key={idx}
-                className="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 md:border-4 border-black md:border-white shadow-md transition-transform hover:-translate-y-2 cursor-pointer"
-                style={{ backgroundColor: color }}
-                title={`Trend Color ${idx + 1}`}
-              />
+                key={n}
+                className="tile relative overflow-hidden cursor-pointer hover:scale-105 transition-transform hover:z-10"
+                style={{ background: c }}
+                title={`${n} · ${c}`}
+              >
+                <div
+                  className="tile-label absolute bottom-0 left-0 right-0 px-2 py-1.5 text-[8px] uppercase tracking-widest text-white font-semibold font-outfit"
+                  style={{ background: 'rgba(0,0,0,.5)' }}
+                >
+                  {n}
+                </div>
+              </div>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* farzy brands */}
-        <div className="flex gap-6 md:gap-12 items-center overflow-x-auto no-scrollbar w-full lg:w-auto justify-center md:justify-start pb-4 lg:pb-0">
-          {['PANTONE®', 'ADOBE COLOR', 'KHROMA', 'COOLORS'].map((brand) => (
+      {/* Marquee */}
+      <div
+        className="overflow-hidden border-t border-white/[0.06] py-3"
+        style={{ background: 'rgba(255,255,255,.015)' }}
+      >
+        <div
+          className="flex gap-10 whitespace-nowrap items-center"
+          style={{ animation: 'mq 20s linear infinite' }}
+        >
+          {[...MQ_WORDS, ...MQ_WORDS].map((w, i) => (
             <span
-              key={brand}
-              className="font-bold text-[10px] md:text-sm tracking-widest text-zinc-600 hover:text-zinc-200 cursor-default transition-colors whitespace-nowrap"
+              key={i}
+              className="text-[9px] uppercase tracking-[.2em] text-white/20 flex items-center gap-3"
             >
-              {brand}
+              {w}
+              <span className="w-1 h-1 rounded-full bg-white/15 inline-block" />
             </span>
           ))}
         </div>

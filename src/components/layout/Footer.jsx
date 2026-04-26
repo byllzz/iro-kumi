@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="w-full max-w-[1560px] mx-auto grid grid-cols-2 md:grid-cols-2 gap-8">
         {/* col -1*/}
         <div className="space-y-4">
-          <h2 className="font-fair text-4xl font-bold text-[#cacaca] tracking-tight">Iro Kumi</h2>
+          <h2 className="font-fair text-4xl font-bold text-[#cacaca] tracking-tight italic">Hexfolio</h2>
           <p className="text-[#cacaca] text-sm leading-relaxed max-w-xs">
             A digital preservation of Wada Sanzō’s 1930s color theory. Exploring the harmony between
             traditional Japanese aesthetics and modern design.
@@ -53,7 +53,7 @@ export default function Footer() {
               Common Questions
             </Link>
             <a
-              href="https://github.com/byllzz/irosai"
+              href="https://github.com/byllzz/hexfolio"
               target="_blank"
               rel="noreferrer"
               className="text-[#cacaca] hover:text-zinc-500 transition-colors text-sm"
@@ -84,7 +84,7 @@ export default function Footer() {
       <div className="w-full py-8 border-t border-zinc-900 flex  md:flex-row justify-center items-center  uppercase tracking-widest">
         <div className="flex flex-col items-center justify-center">
           <p className="uppercase font-fair text-[#cacaca] text-sm">
-            © 2026 Iro Kumi - A Dictionary of Color Combinations
+            © 2026 Hexfolio - A Dictionary of Color Combinations
           </p>
           <Link
             to="/license"
